@@ -1,0 +1,35 @@
+The game works as follows: The board class contains a 2d array of Pieces. Pieces are defined in the Piece class
+and they contain the object type Coordinate which specifies where they are on the board. The move function in the
+Board class takes in an initial coordinate and a new coordinate which moves the pieces.
+
+The driver, main and state classes are where the algorithms begin to come in to play. The algorithms take in a state object.
+A state has the parentBoard which is essentially just the layout of the board of that state. It has an arrayList of
+possible moves. It also has a utility of the state and a boolean for if the state is a terminal state.
+
+The driver class contains the algorithms for searching. It has an initial state and an arrayList that is continually
+updated with the states possible next moves. The main class is where the game is run where it asks the user to input
+the board size as well as the opponents algorithm and for h-minimax the depth cutoff.
+
+The state space is clearly defined and demonstrated in the driver and and state classes. We have a terminalTest(),
+getPossibleMoves(), utility() and move() function that act as TERMINAL-TEST(state), RESULT(s,a), UTILITY(state)
+and ACTIONS(state) functions respectively.
+
+For hminimax the heuristic function we use is a depth cutoff but, in the minimax with alpha beta pruning we define
+our own heuristic function. f(n) = (# of white pieces + 2 * # white kings) - (# of black pieces + 2 * # black kings) = 2
+
+When playing the game the user will be asked to input the coordinates of the piece you would like to move and
+the coordinates for where to move the piece. This applies to captures.
+
+For example, one might input 30 and then 21. 30 would correspond to row 3 column 0 as the piece to move and
+21 would correspond to row 2 column 1 as the new location for the piece. The game will recognize a jump so the
+coordinates for a jump are still initial location (row, column) and new location (row, column).
+
+Example input and output for moving:
+
+Enter the row and column of the piece you want to move: 30
+Enter the row and column of where you want to move it: 21
+
+For running the file in the terminal compile the main file and run the main file:
+
+javac Main.java  
+java Main
